@@ -1,4 +1,5 @@
-das zweite backend holt daten aus der Datenbank und gibt diese ans frontend weiter
+das zweite backend holt daten aus der Datenbank und stellt diese für das frontend bereit
+
 
 die 
 

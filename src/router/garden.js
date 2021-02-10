@@ -66,8 +66,8 @@ export default db => {
     if(!mod) return res.status(404).send();
 
     const now = new Date().getTime();
-    const from = req.query.from ?? new Date(now - (1000 * 3600 * 24 * 7 * 4));
-    const to = req.query.to ?? new Date(now)
+    const from = req.query.from ? req.query.from : new Date(now - (1000 * 3600 * 24 * 7 * 4));
+    const to = req.query.to ? req.query.from : new Date(now)
 
     console.log(from, to)
 
