@@ -19,6 +19,8 @@ Unser Prjektteam besteht aus: </br>
 
 das zweite backend holt daten aus der Datenbank und stellt diese für das frontend an verschiedenen endpoints bereit
 
+<img src="./img/backend2.png">
+
 
 die 
 
