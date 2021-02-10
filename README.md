@@ -24,10 +24,14 @@ Das zweite Backend holt Daten aus der Datenbank und stellt diese für das Fronte
 
 Die verschiedenen Datenendpoints sind:
 
-### GET /api/garden/
+#### GET /api/garden/
 
 Dieser Endpoint sucht alle Einträge aus der Kollektion 'gardens' und fügt in jeden Garten mit `aggregate` die jeweiligen Module ein
 
-### GET /api/garden/:name
+#### GET /api/garden/:name
 
-### GET /api/garden/:name/:position/sensordata
+Dieser Endpoint funktioniert ähnlich wie der erste, er sucht aber nur nach einem Garten, dessen Name in der Anfrage spezifiziert ist. Außerdem fügt dieser Endpoint dem Modul abhängig von der im Modul angplfanzten Pflanze die `phases`, `percentGrown` und `harverstIn` Parameter aus der templateData Kollektion an. Diese können im Frontend als zusätzliche Informationen für den Nutzer angezeigt werden.
+
+#### GET /api/garden/:name/:position/sensordata
+
+Hier werden die Sensordaten eines Moduls mit einem in der Anfrage spezifizierten Position in einem in der Anfrage spezifizierten Garten abgefragt. Außerdem können mit einer query Sensordaten in einem bestimmten Zeitraum abgefragt werden mit dem Syntax `?q={"from": fromDate, "to": toDate}`. Hierbei ist `fromDate` das Datum ab dem die Sensordaten abgefragt werden sollen und `toDate` das Datum bis zu dem die Daten abgefragt werden sollen.
