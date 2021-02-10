@@ -19,11 +19,8 @@ export default db => {
     const gardens = await db.collection('gardens')
       .aggregate([moduleLookup]).toArray();
 
-    if (gardens.length === 0) {
-      res.status(404).send({
-        message: 'Keine Resultate erzielt!'
-      });
-    } else res.status(200).send(gardens);
+      if (gardens) res.json(gardens);
+      else res.status(404).send();
   });
 
   router.get('/:name', celebrate({
@@ -39,8 +36,8 @@ export default db => {
         }
       }]).toArray();
 
-    if (garden) res.json(garden)
-    else res.status(404).send()
+    if (garden) res.json(garden);
+    else res.status(404).send();
 
   });
 
@@ -59,20 +56,22 @@ export default db => {
       name: new RegExp(`^${req.params.name}$`, 'i')
     });
 
-    if(!garden) { return res.status(404).send();  }
+    if(!garden) return res.status(404).send();
 
     const mod = await db.collection('modules').findOne({
       position: Number.parseInt(req.params.position),
       garden: garden._id,
     });
     
-    if(!mod) return res.status(404).send()
+    if(!mod) return res.status(404).send();
 
-    const now = new Date().getTime()
-    const from = req.query.from ?? new Date(now - 3600 * 24 * 7)
+    const now = new Date().getTime();
+    const from = req.query.from ?? new Date(now - (1000 * 3600 * 24 * 7 * 4));
     const to = req.query.to ?? new Date(now)
 
-    const data = db.collection('sensordatas').find({
+    console.log(from, to)
+
+    const sensordata = await db.collection('sensordatas').find({
       module: mod._id,
       time: {
          $gte: from,
@@ -80,7 +79,7 @@ export default db => {
       },
     }).toArray();
 
-    if(data.length > 0) res.json(data);
+    if (sensordata) res.json(sensordata);
     else res.status(404).send();
 
   });

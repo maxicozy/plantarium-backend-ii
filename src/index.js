@@ -20,6 +20,5 @@ async function start() {
 }
 
 start().catch(e => {
-  console.log(e)
-  process.exit(-1)
+  console.error(e)
 });
