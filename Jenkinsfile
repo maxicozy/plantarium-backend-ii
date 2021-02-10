@@ -15,7 +15,7 @@ pipeline {
       when { 
         not {
           anyOf {
-            branch 'master'
+            branch 'main'
           }
         }
       }
