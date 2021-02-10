@@ -34,4 +34,4 @@ Dieser Endpoint funktioniert ähnlich wie der erste, er sucht aber nur nach eine
 
 #### GET /api/garden/:name/:position/sensordata
 
-Hier werden die Sensordaten eines Moduls mit einem in der Anfrage spezifizierten Position in einem in der Anfrage spezifizierten Garten abgefragt. Außerdem können mit einer query Sensordaten in einem bestimmten Zeitraum abgefragt werden mit dem Syntax `?q={"from": fromDate, "to": toDate}`. Hierbei ist `fromDate` das Datum ab dem die Sensordaten abgefragt werden sollen und `toDate` das Datum bis zu dem die Daten abgefragt werden sollen.
+Hier werden die Sensordaten eines Moduls mit einem in der Anfrage spezifizierten Position in einem in der Anfrage spezifizierten Garten abgefragt. Außerdem können mit einer query Sensordaten in einem bestimmten Zeitraum abgefragt werden mit dem Syntax `?from=fromDate&to=toDate`. Hierbei ist `fromDate` das Datum ab dem die Sensordaten abgefragt werden sollen und `toDate` das Datum bis zu dem die Daten abgefragt werden sollen.
