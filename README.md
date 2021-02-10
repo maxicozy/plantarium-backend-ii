@@ -17,15 +17,17 @@ Unser Prjektteam besteht aus: </br>
 
 ## plantarium-backend-i
 
-das zweite backend holt daten aus der Datenbank und stellt diese für das frontend an verschiedenen endpoints bereit
+Das zweite Backend holt Daten aus der Datenbank und stellt diese für das Frontend an verschiedenen Endpoints bereit
 
 <img src="./img/backend2.png">
 
 
-die 
+Die verschiedenen Datenendpoints sind:
 
+### GET /api/garden/
 
-GET /garden
-GET /garden/:id
+Dieser Endpoint sucht alle Einträge aus der Kollektion 'gardens' und fügt in jeden Garten mit `aggregate` die jeweiligen Module ein
 
-GET /garden/:id/sensordata
+### GET /api/garden/:name
+
+### GET /api/garden/:name/:position/sensordata
