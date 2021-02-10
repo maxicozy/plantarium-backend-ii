@@ -3,9 +3,9 @@ import express from 'express';
 import database from './database.js';
 import router from './router/main.js';
 
-dotenv.config();
+const config = dotenv.config(process.env.PLANTARIUM2_CONFIG).parsed;
 
-const PORT = Number.parseInt(process.env.PORT) || 80;
+const PORT = Number.parseInt(config.PORT) || 3040;
 
 const app = express();
 
